@@ -15,14 +15,14 @@ const transporter = nodemailer.createTransport({
 });
 
 const send_reservation = async (req, res, next) => {
-  const { firstName, lastName, email, date, time, phone, totalPeople,status } = req.body;
+  const { firstName, lastName, email, date, time, phone, totalPeople, status } = req.body;
 
   if (!firstName || !lastName || !email || !date || !time || !phone || !totalPeople) {
     return next(new ErrorHandler("Please Fill Full Reservation Form!", 400));
   }
 
   try {
-    await Reservation.create({ firstName, lastName, email, date, time, phone, totalPeople,status });
+    await Reservation.create({ firstName, lastName, email, date, time, phone, totalPeople, status });
 
     // Send confirmation email
     const mailOptions = {
@@ -201,5 +201,5 @@ const edit_reservation = async (req, res, next) => {
 };
 
 // ✅ Export as named exports
-module.exports = { send_reservation, get_reservations ,delete_reservation,edit_reservation};
+module.exports = { send_reservation, get_reservations, delete_reservation, edit_reservation };
 
