@@ -130,8 +130,8 @@ A **Postman API collection** has been created for testing all the endpoints. You
 
 ## 📌 To-Do List
 - [x] Manager can add menu items
+- [x] Improve Reservation Dashboard for Managers
 - [ ] Integrate Edit & Delete API for Menu Management
-- [ ] Improve Reservation Dashboard for Managers
 - [ ] Deploy Frontend and Backend
 
 ---
