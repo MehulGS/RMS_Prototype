@@ -5,8 +5,8 @@ const cloudinary = require("../database/cloudinary");
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
     params: {
-        folder: "menu_images", // Cloudinary folder name
-        format: async (req, file) => "png", // Adjust format if needed
+        folder: "menu_images", 
+        format: async (req, file) => "png", 
         public_id: (req, file) => file.originalname.split(".")[0]
     },
 });

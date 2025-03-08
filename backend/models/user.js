@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
         enum:["manager","cheif"],
         default:"cheif",
     },
-    phone: { type: String, required: true, unique: true }  // Change from Number to String
+    phone: { type: String, required: true, unique: true }  
 });
 
 const User = mongoose.model("User", userSchema);

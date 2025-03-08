@@ -25,7 +25,6 @@ const AddItem = async (req, res, next) => {
             return next(new ErrorHandler("Please fill all fields and upload an image!", 400));
         }
 
-        // Agar `type` ek MongoDB ObjectId hai, toh use `_id` field ke saath match karein
         const existingType = await Type.findOne({ _id: type });
 
         if (!existingType) {
@@ -36,7 +35,7 @@ const AddItem = async (req, res, next) => {
             type: existingType._id,
             foodname,
             price,
-            image: req.file.path // Cloudinary URL
+            image: req.file.path 
         });
 
         res.status(201).json({
@@ -69,7 +68,6 @@ const EditItem = async (req, res, next) => {
             return res.status(403).json({ success: false, message: "Access Denied! Only managers can edit menu items." });
         }
 
-        // Find the type by name
         const existingType = await Type.findOne({ type });
         if (!existingType) {
             return next(new ErrorHandler("Invalid type provided!", 400));
@@ -128,13 +126,14 @@ const DeleteItem = async (req, res, next) => {
     }
 };
 
+//Every one can get menu
 const GetMenuItems = async (req, res, next) => {
     try {
-        const { type } = req.query; // Get type from query params
+        const { type } = req.query; 
         let filter = {};
 
         if (type) {
-            filter.type = type; // Filter menu items by type if provided
+            filter.type = type; 
         }
 
         const menuItems = await Menu.find(filter).populate("type", "type");

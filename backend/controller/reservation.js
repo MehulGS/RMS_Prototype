@@ -24,7 +24,7 @@ const send_reservation = async (req, res, next) => {
   try {
     await Reservation.create({ firstName, lastName, email, date, time, phone, totalPeople, status });
 
-    // Send confirmation email
+    
     const mailOptions = {
       from: process.env.EMAIL,
       to: email,
@@ -141,7 +141,7 @@ const delete_reservation = async (req, res, next) => {
       });
     }
 
-    // Instead of deleting, update status to 'Cancelled'
+  
     reservation.status = "Cancelled";
     await reservation.save();
 
@@ -200,6 +200,6 @@ const edit_reservation = async (req, res, next) => {
   }
 };
 
-// ✅ Export as named exports
+
 module.exports = { send_reservation, get_reservations, delete_reservation, edit_reservation };
 

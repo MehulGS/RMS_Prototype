@@ -21,10 +21,10 @@ const register = async (req, res) => {
     try {
         let { name, email, password, phone, role } = req.body;
 
-        // Remove non-numeric characters from the phone number
+
         phone = phone.replace(/\D/g, "");
 
-        // Check if user with email or phone already exists
+    
         let existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ message: "Email is already registered" });
@@ -62,7 +62,7 @@ const login = async (req, res) => {
 
         const token = jwt.sign({ id: user._id,name:user.name,role:user.role,email:user.email }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
-        // Optionally set token in an HTTP-only cookie for security
+
         res.cookie("token", token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
@@ -85,7 +85,7 @@ const sendOtp = async (req, res) => {
         }
 
         const otp = generateOTP();
-        otpStore.set(email, { otp, expires: Date.now() + 5 * 60 * 1000 }); // Expires in 5 minutes
+        otpStore.set(email, { otp, expires: Date.now() + 5 * 60 * 1000 }); 
 
         await transporter.sendMail({
             from: process.env.EMAIL_USER,
@@ -110,10 +110,9 @@ const verifyOtp = async (req, res) => {
             return res.status(400).json({ success: false, message: "Invalid or expired OTP" });
         }
 
-        // Generate a temporary token for password reset
         const resetToken = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: "10m" });
 
-        otpStore.delete(email); // Remove OTP after successful verification
+        otpStore.delete(email);
 
         res.status(200).json({ success: true, message: "OTP verified", resetToken });
     } catch (error) {
@@ -129,11 +128,11 @@ const changePassword = async (req, res) => {
             return res.status(400).json({ success: false, message: "Invalid request" });
         }
 
-        // Verify reset token
+    
         const decoded = jwt.verify(resetToken, process.env.JWT_SECRET);
         const email = decoded.email;
 
-        // Hash new password and update
+    
         const hashedPassword = await bcrypt.hash(newPassword, 10);
         await User.updateOne({ email }, { password: hashedPassword });
 

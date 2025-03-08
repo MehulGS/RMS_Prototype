@@ -15,7 +15,7 @@ const menuSchema = new mongoose.Schema({
         required: true
     },
     image: {
-        type: String, // URL of the image stored in Cloudinary
+        type: String, 
         required: true
     }
 });

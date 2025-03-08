@@ -13,8 +13,8 @@ dotenv.config({ path: "./config.env" });
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // Your frontend URL
-    credentials: true, // Allow cookies and authentication headers
+    origin: "http://localhost:5173", 
+    credentials: true, 
   })
 );
 app.use(express.json());

@@ -23,7 +23,6 @@ const AddType = async (req, res, next) => {
             return next(new ErrorHandler("Type field is required!", 400));
         }
 
-        // Check if type already exists
         const existingType = await Type.findOne({ type });
         if (existingType) {
             return next(new ErrorHandler("Type already exists!", 400));
