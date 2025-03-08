@@ -11,13 +11,11 @@ import Login from "./Pages/Auth/Login/Login";
 import ResetotpMail from "./Pages/Auth/Reset_Email/ResetotpMail";
 import Verification from "./Pages/Auth/Otp_Verify/Verification";
 import Changepassword from "./Pages/Auth/Changepassword/Changepassword";
-import Status from "./components/Model/Status";
 const App = () => {
   return (
     <>
       <Router>
         <Routes>
-
           {/* UserSide */}
           <Route path="/" element={<Home />} />
           <Route path="/success" element={<Success />} />

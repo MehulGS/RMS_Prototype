@@ -3,7 +3,7 @@ import AdminReservations from "./AdminReservations";
 import CreateMenu from "./AdminMenu/CreateMenu";
 
 const Detail = () => {
-  const [activeTab, setActiveTab] = useState("menu");
+  const [activeTab, setActiveTab] = useState("reservation");
 
   return (
     <div className="flex flex-col md:flex-row h-screen">
