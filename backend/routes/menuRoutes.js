@@ -1,10 +1,11 @@
 const express = require("express");
 const { AddItem, EditItem, DeleteItem, GetMenuItems } = require("../controller/menuController");
+const upload = require("../middlewares/upload");
 
 const router = express.Router();
 
 // Route to add a menu item (Only accessible by managers)
-router.post("/add-item", AddItem);
+router.post("/add-item",upload.single("image"), AddItem);
 
 // Route to edit a menu item (Only accessible by managers)
 router.put("/edit-item/:id", EditItem);

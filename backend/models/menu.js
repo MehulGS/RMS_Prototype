@@ -13,6 +13,10 @@ const menuSchema = new mongoose.Schema({
     price: {
         type: Number,
         required: true
+    },
+    image: {
+        type: String, // URL of the image stored in Cloudinary
+        required: true
     }
 });
 

@@ -21,17 +21,21 @@ const AddItem = async (req, res, next) => {
             return res.status(403).json({ success: false, message: "Access Denied! Only managers can add menu items." });
         }
 
-        if (!type || !foodname || !price) {
-            return next(new ErrorHandler("Please fill all the fields!", 400));
+        if (!type || !foodname || !price || !req.file) {
+            return next(new ErrorHandler("Please fill all fields and upload an image!", 400));
         }
 
-        // Find the type by name
         const existingType = await Type.findOne({ type });
         if (!existingType) {
             return next(new ErrorHandler("Invalid type provided!", 400));
         }
 
-        const newMenu = await Menu.create({ type: existingType._id, foodname, price });
+        const newMenu = await Menu.create({
+            type: existingType._id,
+            foodname,
+            price,
+            image: req.file.path // Cloudinary URL
+        });
 
         res.status(201).json({
             success: true,
@@ -43,6 +47,7 @@ const AddItem = async (req, res, next) => {
         return next(new ErrorHandler("Invalid or expired token!", 401));
     }
 };
+
 
 // Edit Menu Item (Only Manager)
 const EditItem = async (req, res, next) => {
