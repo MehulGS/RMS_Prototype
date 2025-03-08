@@ -8,14 +8,17 @@ const Detail = () => {
   return (
     <div className="flex flex-col md:flex-row h-screen">
       {/* Sidebar */}
-      <div className="w-full md:w-1/4 bg-gray-800 text-white p-4 md:h-full fixed md:relative top-0 left-0 z-10">
+      <div
+        className="w-full md:w-1/4 bg-gray-800 text-white p-4 md:h-full fixed md:relative top-0 left-0 z-10"
+        style={{padding:"20px"}}
+      >
         <h2 className="text-xl font-bold mb-4">Dashboard</h2>
-        <ul>
+        <ul style={{marginTop:"10px"}}>
           <li
             className={`p-2 cursor-pointer rounded-md transition-colors duration-200 ${
               activeTab === "reservation" ? "bg-gray-600" : "hover:bg-gray-700"
             }`}
-            onClick={() => setActiveTab("reservation")}
+            onClick={() => setActiveTab("reservation")} style={{marginTop:"20px",padding:"10px"}}
           >
             Reservation
           </li>
@@ -23,7 +26,7 @@ const Detail = () => {
             className={`p-2 cursor-pointer rounded-md transition-colors duration-200 ${
               activeTab === "menu" ? "bg-gray-600" : "hover:bg-gray-700"
             }`}
-            onClick={() => setActiveTab("menu")}
+            onClick={() => setActiveTab("menu")} style={{marginTop:"20px",padding:"10px"}}
           >
             Menu
           </li>
