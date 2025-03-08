@@ -3,12 +3,11 @@
 ## 📌 Project Overview
 This is a **Restaurant Management System** built using the **MERN** stack. The system allows **restaurant managers** to manage reservations, menu items, and user authentication. Customers can make reservations, and managers can update the reservation status.
 
-
-![Restaurant Management System](./images/ScreenShot1.png)
-![Restaurant Management System](./images/ScreenShot2.png)
-![Restaurant Management System](./images/ScreenShot3.png)
-![Restaurant Management System](./images/ScreenShot4.png)
-![Restaurant Management System](./images/ScreenShot5.png)
+![Restaurant Management System](./images/Screenshot1.png)
+![Restaurant Management System](./images/Screenshot2.png)
+![Restaurant Management System](./images/Screenshot3.png)
+![Restaurant Management System](./images/Screenshot4.png)
+![Restaurant Management System](./images/Screenshot5.png)
 
 ---
 
@@ -38,18 +37,15 @@ This is a **Restaurant Management System** built using the **MERN** stack. The s
    ```
 4. Create a `.env` file in the backend root and add the following:
    ```env
-   MONGO_URI= Your Mongo DB URL 
-
+   MONGO_URI=your_mongodb_url
    FRONTEND_URL=http://localhost:5173/
-
    PORT=5000
    JWT_SECRET=ITS_A_SECRET
-
-   CLOUDINARY_CLOUD_NAME= Your CLOUDINARY_CLOUD_NAME
-   CLOUDINARY_API_KEY= Your CLOUDINARY_API_KEY
-   CLOUDINARY_API_SECRET= Your CLOUDINARY_API_SECRET
-   EMAIL= Your Mail Id
-   EMAIL_PASSWORD= Your Email Password
+   CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+   CLOUDINARY_API_KEY=your_cloudinary_api_key
+   CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+   EMAIL=your_email
+   EMAIL_PASSWORD=your_email_password
    ```
 5. Start the backend server:
    ```sh
@@ -73,7 +69,7 @@ This is a **Restaurant Management System** built using the **MERN** stack. The s
 ---
 
 ## 🔗 API Endpoints
-### 🧑 User Authentication
+### 🤝 User Authentication
 - **Register User:** `POST /api/v1/user/register`
 - **Login User:** `POST /api/v1/user/login`
 - **Send OTP:** `POST /api/v1/user/send-otp`
@@ -86,7 +82,7 @@ This is a **Restaurant Management System** built using the **MERN** stack. The s
 - **Delete Menu Item:** `DELETE /api/v1/menu/delete-item/:id`
 - **Get Menu Items:** `GET /api/v1/menu/menu-items`
 
-### 📅 Reservation Management
+### 🗓️ Reservation Management
 - **Make a Reservation:** `POST /api/v1/reservation/send`
 - **Get Guest List:** `GET /api/v1/reservation/guestList`
 - **Cancel Reservation:** `PUT /api/v1/reservation/cancel/:reservationId`
@@ -107,7 +103,7 @@ This is a **Restaurant Management System** built using the **MERN** stack. The s
 ✅ Email Notifications for Reservations  
 ✅ Secure API with JWT Authentication  
 
-![Dashboard](./images/screenshot2.png)
+![Dashboard](./images/Screenshot2.png)
 
 ---
 
@@ -146,4 +142,3 @@ For any issues or queries, contact **Mehul Gupta** at [mehulguptar.w453@gmail.co
 ---
 
 📍 **GitHub Repository:** [RMS_Prototype](https://github.com/MehulGS/RMS_Prototype)
-
