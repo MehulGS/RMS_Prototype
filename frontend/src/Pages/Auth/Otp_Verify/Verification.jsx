@@ -41,7 +41,7 @@ const Verification = () => {
                   className="text-center text-2xl font-semibold"
                   style={{ marginBottom: "20px", marginTop: "20px" }}
                 >
-                  <div className="logo">ZEESH</div>
+                  <div className="logo">Ren Basera</div>
                 </h2>
                 <div className="space-y-4" style={{ marginTop: "20px" }}>
                   <div>

@@ -39,7 +39,7 @@ const Changepassword = () => {
     <div className="font-[sans-serif] min-h-screen flex items-center justify-center py-6 px-4">
       <div className="flex justify-center items-center gap-10 max-w-6xl max-md:max-w-md w-full">
         <form className="max-w-md w-full" onSubmit={handleSubmit}>
-          <h2 className="text-center text-2xl font-semibold mb-6">ZEESH</h2>
+          <h2 className="text-center text-2xl font-semibold mb-6">Ren Basera</h2>
           <div className="space-y-4">
             <div className="relative" style={{marginBottom:"20px"}}>
               <input

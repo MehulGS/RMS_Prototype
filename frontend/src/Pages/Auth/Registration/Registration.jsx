@@ -61,7 +61,7 @@ const Registration = () => {
           className="text-center text-2xl font-semibold"
           style={{ marginBottom: "20px", marginTop: "20px" }}
         >
-          <div className="logo">ZEESH</div>
+          <div className="logo">Ren Basera</div>
         </h2>
         {message && <p className="text-center text-red-500">{message}</p>}
         <form onSubmit={handleSubmit}>
