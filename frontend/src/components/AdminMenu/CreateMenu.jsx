@@ -26,7 +26,7 @@ const CreateMenu = () => {
   const fetchMenuItems = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/v1/menu/menu-items?type=${selectedType}`
+      `http://localhost:5000/api/v1/menu/menu-items?type=${selectedType}`
       );
       setMenuItems(response.data.data);
     } catch (error) {
