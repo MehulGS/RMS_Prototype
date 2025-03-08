@@ -120,6 +120,13 @@ app.use("/api/v1/menu", menuRouter);
 app.use("/api/v1/type", addtypeRouter);
 app.use("/api/v1/reservation", reservationRouter);
 ```
+---
+
+## 🌐 Dashboard URL
+You can access the **Restaurant Management System Dashboard** at:  
+🔗 [Frontend Dashboard](http://localhost:5173/dashboard)
+
+---
 
 ---
 
