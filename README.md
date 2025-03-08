@@ -103,7 +103,7 @@ This is a **Restaurant Management System** built using the **MERN** stack. The s
 ✅ Email Notifications for Reservations  
 ✅ Secure API with JWT Authentication  
 
-![Dashboard](./images/Screenshot2.png)
+![Dashboard](./images/Screenshot1.png)
 
 ---
 
