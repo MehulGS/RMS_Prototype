@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="banner">
           <div className="left">Ren Basera</div>
           <div className="right">
-            <p>Z6 Gulshan-e-Maymar, Karachi</p>
+            <p>Soni ni chali,odhav,Ahmedabad,Gujarat,India:-382415</p>
             <p>Open: 05:00 PM - 12:00 AM</p>
           </div>
         </div>
