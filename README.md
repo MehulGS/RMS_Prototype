@@ -3,7 +3,6 @@
 ## 📌 Project Overview
 This is a **Restaurant Management System** built using the **MERN** stack. The system allows **restaurant managers** to manage reservations, menu items, and user authentication. Customers can make reservations, and managers can update the reservation status.
 
-![Restaurant Management System](./images/ScreenShot1.png)
 ![Restaurant Management System](./images/ScreenShot2.png)
 ![Restaurant Management System](./images/ScreenShot3.png)
 ![Restaurant Management System](./images/ScreenShot4.png)
