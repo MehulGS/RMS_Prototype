@@ -143,4 +143,3 @@ const changePassword = async (req, res) => {
 }
 
 module.exports = { register, login, sendOtp, verifyOtp,changePassword };
-

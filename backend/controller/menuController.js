@@ -50,8 +50,6 @@ const AddItem = async (req, res, next) => {
     }
 };
 
-
-
 // Edit Menu Item (Only Manager)
 const EditItem = async (req, res, next) => {
     const { id } = req.params;
@@ -93,7 +91,6 @@ const EditItem = async (req, res, next) => {
         return next(new ErrorHandler("Invalid or expired token!", 401));
     }
 };
-
 
 // Delete Menu Item (Only Manager)
 const DeleteItem = async (req, res, next) => {
@@ -146,8 +143,6 @@ const GetMenuItems = async (req, res, next) => {
         return next(new ErrorHandler("Error fetching menu items!", 500));
     }
 };
-
-
 
 module.exports = {
     AddItem,

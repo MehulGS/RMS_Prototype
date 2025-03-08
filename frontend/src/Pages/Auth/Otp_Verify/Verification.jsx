@@ -9,7 +9,7 @@ const Verification = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const email = localStorage.getItem("resetEmail"); // Retrieve email from storage
+      const email = localStorage.getItem("resetEmail");
       const response = await axios.post(
         "http://localhost:5000/api/v1/user/verify-otp",
         { email, otp }

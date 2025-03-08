@@ -20,8 +20,8 @@ const Login = () => {
         }
       );
 
-      localStorage.setItem("token", response.data.token); // Store token in localStorage
-      navigate("/dashboard"); // Redirect to dashboard after login
+      localStorage.setItem("token", response.data.token); 
+      navigate("/dashboard"); 
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");
     }

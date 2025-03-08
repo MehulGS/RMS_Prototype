@@ -23,8 +23,8 @@ const Status = ({ type, onClose, reservation }) => {
       );
 
       console.log(response.data.message);
-      onClose(); // Close modal after success
-      window.location.reload(); // Refresh reservations list
+      onClose(); 
+      window.location.reload(); 
     } catch (error) {
       console.error("Error updating reservation:", error);
     }

@@ -57,6 +57,3 @@ const GetType = async (req, res, next) => {
 };
 
 module.exports = { AddType, GetType };
-
-
-

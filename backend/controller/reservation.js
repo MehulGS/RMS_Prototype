@@ -106,7 +106,6 @@ const get_reservations = async (req, res, next) => {
   }
 };
 
-
 const delete_reservation = async (req, res, next) => {
   try {
     const token = req.headers.authorization?.split(" ")[1];
@@ -200,6 +199,4 @@ const edit_reservation = async (req, res, next) => {
   }
 };
 
-
 module.exports = { send_reservation, get_reservations, delete_reservation, edit_reservation };
-

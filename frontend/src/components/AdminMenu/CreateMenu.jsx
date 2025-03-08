@@ -11,17 +11,18 @@ const CreateMenu = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const fetchTypes = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:5000/api/v1/type/get-type"
+      );
+      setTypes(response.data.data);
+    } catch (error) {
+      console.error("Error fetching types:", error);
+    }
+  };
+  
   useEffect(() => {
-    const fetchTypes = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:5000/api/v1/type/get-type"
-        );
-        setTypes(response.data.data);
-      } catch (error) {
-        console.error("Error fetching types:", error);
-      }
-    };
     fetchTypes();
   }, []);
 
@@ -35,7 +36,6 @@ const CreateMenu = () => {
       console.error("Error fetching menu items:", error);
     }
   };
-  console.log(menuItems);
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
@@ -74,7 +74,7 @@ const CreateMenu = () => {
         }
       );
       alert(response.data.message);
-      fetchMenuItems(); // Refresh the menu items after adding a new one
+      fetchMenuItems(); 
     } catch (error) {
       console.error("Error adding item:", error);
       alert("Failed to add menu item.");
