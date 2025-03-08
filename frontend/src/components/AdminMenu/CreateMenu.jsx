@@ -7,6 +7,7 @@ const CreateMenu = () => {
   const [foodname, setFoodname] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState(null);
+  const [menuItems, setMenuItems] = useState([]); // State to store menu items
 
   useEffect(() => {
     const fetchTypes = async () => {
@@ -22,7 +23,16 @@ const CreateMenu = () => {
     fetchTypes();
   }, []);
 
-  console.log(types);
+  const fetchMenuItems = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:5000/api/v1/menu/menu-items?type=${selectedType}`
+      );
+      setMenuItems(response.data.data);
+    } catch (error) {
+      console.error("Error fetching menu items:", error);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,13 +61,12 @@ const CreateMenu = () => {
         }
       );
       alert(response.data.message);
+      fetchMenuItems(); // Refresh the menu items after adding a new one
     } catch (error) {
       console.error("Error adding item:", error);
       alert("Failed to add menu item.");
     }
   };
-
-  console.log("Selected Type ID:", selectedType);
 
   return (
     <>
@@ -108,7 +117,10 @@ const CreateMenu = () => {
               <p className="mt-2 text-sm text-green-600">{image.name}</p>
             )}
           </div>
-          <div className="flex justify-center" style={{ marginTop: "20px" }}>
+          <div
+            className="flex justify-center gap-4"
+            style={{ marginTop: "20px" }}
+          >
             <button
               className="bg-blue-500 text-white px-4 py-2 mt-2 rounded-md hover:bg-blue-600 transition duration-200 w-[90px] h-[40px]"
               onClick={handleSubmit}
@@ -119,6 +131,44 @@ const CreateMenu = () => {
         </div>
       </div>
       <hr />
+      {/* Filter Section */}
+      <div className="mt-5">
+        <label className="block text-gray-700 font-medium">Filter by Type:</label>
+        <select
+          className="border p-2 w-full mt-2 rounded-md h-[60px]"
+          value={selectedType}
+          onChange={(e) => setSelectedType(e.target.value)}
+        >
+          <option value="">Select menu type</option>
+          {types?.map((type) => (
+            <option key={type._id} value={type._id}>
+              {type.type}
+            </option>
+          ))}
+        </select>
+        <button
+          className="bg-gray-500 text-white px-4 py-2 mt-2 rounded-md hover:bg-gray-600 transition duration-200 w-[90px] h-[40px]"
+          onClick={fetchMenuItems}
+        >
+          Filter
+        </button>
+      </div>
+
+      {/* Display Filtered Menu Items */}
+      <div className="mt-5">
+        <h2 className="text-xl font-bold">Menu Items:</h2>
+        <ul className="mt-2">
+          {menuItems.length > 0 ? (
+            menuItems.map((item) => (
+              <li key={item._id} className="border-b py-2">
+                <strong>{item.foodname}</strong> - ₹{item.price} ({item.type.type})
+              </li>
+            ))
+          ) : (
+            <p>No items found</p>
+          )}
+        </ul>
+      </div>
     </>
   );
 };

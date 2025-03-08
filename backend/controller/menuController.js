@@ -130,7 +130,14 @@ const DeleteItem = async (req, res, next) => {
 
 const GetMenuItems = async (req, res, next) => {
     try {
-        const menuItems = await Menu.find().populate("type", "type"); // Populate type name
+        const { type } = req.query; // Get type from query params
+        let filter = {};
+
+        if (type) {
+            filter.type = type; // Filter menu items by type if provided
+        }
+
+        const menuItems = await Menu.find(filter).populate("type", "type");
 
         res.status(200).json({
             success: true,
@@ -140,6 +147,7 @@ const GetMenuItems = async (req, res, next) => {
         return next(new ErrorHandler("Error fetching menu items!", 500));
     }
 };
+
 
 
 module.exports = {
