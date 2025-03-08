@@ -43,4 +43,21 @@ const AddType = async (req, res, next) => {
     }
 };
 
-module.exports = { AddType };
+const GetType = async (req, res, next) => {
+    try {
+        const types = await Type.find();
+        res.status(200).json({
+            success: true,
+            message: "Menu Types Fetched Successfully",
+            data: types
+        });
+    } catch (error) {
+        console.log(error);
+        return next(new ErrorHandler("Failed to fetch menu types!", 500));
+    }
+};
+
+module.exports = { AddType, GetType };
+
+
+

@@ -1,4 +1,4 @@
-const ErrorHandler = require("../middlewares/error");
+const { ErrorHandler } = require("../middlewares/error"); 
 const Menu = require("../models/menu");
 const Type = require("../models/type");
 const jwt = require("jsonwebtoken");
@@ -25,7 +25,9 @@ const AddItem = async (req, res, next) => {
             return next(new ErrorHandler("Please fill all fields and upload an image!", 400));
         }
 
-        const existingType = await Type.findOne({ type });
+        // Agar `type` ek MongoDB ObjectId hai, toh use `_id` field ke saath match karein
+        const existingType = await Type.findOne({ _id: type });
+
         if (!existingType) {
             return next(new ErrorHandler("Invalid type provided!", 400));
         }
@@ -44,9 +46,11 @@ const AddItem = async (req, res, next) => {
         });
 
     } catch (error) {
+        console.log(error);
         return next(new ErrorHandler("Invalid or expired token!", 401));
     }
 };
+
 
 
 // Edit Menu Item (Only Manager)
